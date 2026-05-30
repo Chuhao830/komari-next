@@ -326,7 +326,7 @@ const NodeTable: React.FC<NodeTableProps> = ({ nodes, liveData }) => {
                             {node.name}
                           </span>
                           <span className="text-xs text-muted-foreground">
-                            {isOnline ? formatUptime(nodeData.uptime, t) : 'Offline'}
+                            {isOnline ? formatUptime(nodeData.uptime, t) : t("nodeCard.offline")}
                           </span>
                         </div>
                       </Link>
@@ -423,7 +423,7 @@ const NodeTable: React.FC<NodeTableProps> = ({ nodes, liveData }) => {
                       {node.traffic_limit > 0 ? (
                         <div className="mx-auto w-full max-w-[184px] space-y-1">
                           <div className="flex items-center justify-between gap-2 text-[10px] leading-none text-muted-foreground">
-                            <span className="shrink-0">{trafficLimitType.toUpperCase()} Limit</span>
+                            <span className="shrink-0">{t("nodeCard.trafficLimit")}</span>
                             <span className="shrink-0 font-mono tabular-nums">
                               {formatTrafficPercentage(trafficPercentage)}
                             </span>
