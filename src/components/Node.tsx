@@ -201,13 +201,13 @@ function PingQualityBars({ pingStats, t }: { pingStats: PingStats; t: TFunction 
       </div>
       <div className="grid grid-cols-2 gap-2">
         <PingHistoryStrip
-          label={t("nodeCard.latency", { defaultValue: "Latency" })}
+          label={t("nodeCard.latency", { defaultValue: "延迟" })}
           value={`${Math.round(pingStats.avgLatency)} ms`}
           points={historyPoints}
           metric="latency"
         />
         <PingHistoryStrip
-          label={t("chart.lossRate", { defaultValue: "Loss" })}
+          label={t("chart.lossRate", { defaultValue: "丢包" })}
           value={`${pingStats.avgLoss.toFixed(1)}%`}
           points={historyPoints}
           metric="loss"
@@ -440,7 +440,7 @@ const Node = ({ basic, live, online, pingStatsEnabled = false }: NodeProps) => {
           {basic.traffic_limit > 0 && (
             <div className="mt-2 pt-1">
                <div className="flex justify-between text-[10px] mb-1 text-muted-foreground">
-                 <span>{trafficLimitType.toUpperCase()} Limit</span>
+                 <span>{t("nodeCard.trafficLimit")}</span>
                  <span className="font-mono">
                    {formatBytes(trafficUsed)} / {formatBytes(basic.traffic_limit)}
                  </span>
